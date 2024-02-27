@@ -245,25 +245,26 @@ function AddProduct() {
           <TextField fullWidth name="rating" type="number" variant="outlined" onChange={handleChange} />
         </Grid>
         <Grid item xs={12}>
-          <Typography>Price</Typography>
-          <TextField fullWidth name="price" type="number" variant="outlined" onChange={handleChange} />
+          <Typography>Price*</Typography>
+          <TextField fullWidth name="price" type="number" variant="outlined" onChange={handleChange} required />
         </Grid>
         <Grid item xs={12}>
-          <Typography>Thumbnail</Typography>
+          <Typography>Thumbnail*</Typography>
           <TextField fullWidth name="price" type="text" variant="outlined" onChange={handleChange} required />
         </Grid>
         <Grid item xs={12}>
-          <Typography>Title</Typography>
+          <Typography>Title*</Typography>
           <TextField fullWidth name="title" variant="outlined" onChange={handleChange} required />
         </Grid>
         <Grid item xs={12}>
-          <Typography>Brand</Typography>
+          <Typography>Brand*</Typography>
           <FormControl fullWidth variant="outlined">
             <InputLabel>Brand</InputLabel>
             <Select
               value={product.brand || ""}
               onChange={(e) => setProduct({ ...product, brand: e.target.value })}
               label="Brand"
+              required
             >
               <MenuItem value="Apple">Apple</MenuItem>
               <MenuItem value="Samsung">Samsung</MenuItem>
@@ -272,13 +273,14 @@ function AddProduct() {
           </FormControl>
         </Grid>
         <Grid item xs={12}>
-          <Typography>Category</Typography>
+          <Typography>Category*</Typography>
           <FormControl fullWidth variant="outlined">
             <InputLabel>Category</InputLabel>
             <Select
               value={product.category || ""}
               onChange={(e) => setProduct({ ...product, category: e.target.value })}
               label="Category"
+              required
             >
               <MenuItem value="Smartphones">Smartphones</MenuItem>
               <MenuItem value="Laptops">Laptops</MenuItem>
