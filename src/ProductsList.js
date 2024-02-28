@@ -14,11 +14,11 @@ function ProductsList() {
     getAll();
   }, []);
   return (
-    <>
+    <div style={{ display: "flex", minWidth: "max-Content" }}>
       {products.map((product, index) => (
         <Product {...product} key={index} />
       ))}
-    </>
+    </div>
   );
 }
 

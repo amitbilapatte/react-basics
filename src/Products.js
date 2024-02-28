@@ -1,32 +1,55 @@
-import { useState } from "react";
+import {
+  Avatar,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  CardMedia,
+  Collapse,
+  IconButton,
+  Typography,
+} from "@mui/material";
+import { red } from "@mui/material/colors";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShareIcon from "@mui/icons-material/Share";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 
 function Product({ thumbnail, title, rating, price }) {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <div className="border border-gray-300 rounded-md overflow-hidden">
-      <div onClick={() => setIsOpen(true)}>
-        <img src={thumbnail} alt={title} className="w-full h-60 object-cover" />
-        <div className="p-4">
-          <h2 className="text-xl font-bold mb-2">{title}</h2>
-          <p className="mb-1">Rating: {rating}</p>
-          <p>Price: ${price}</p>
-        </div>
-      </div>
-      {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-          <div className="bg-white p-8 max-w-lg">
-            <img src={thumbnail} alt={title} onClick={() => setIsOpen(false)} className="w-full h-60 object-cover" />
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-0 right-0 m-4 p-2 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
+    <Card sx={{ maxWidth: 345, m: "1rem", boxShadow: "10" }}>
+      <CardHeader
+        avatar={
+          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+            {title[0]}
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        title={title}
+      />
+      <CardMedia sx={{ borderRadius: "1rem" }} component="img" height="194" image={thumbnail} alt="image" />
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+          Rating: {rating}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Price: {price}
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
+      </CardActions>
+    </Card>
   );
 }
 

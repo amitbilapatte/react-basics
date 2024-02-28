@@ -236,27 +236,27 @@ function AddProduct() {
         Add Product
       </Typography>
       <Grid container spacing={2}>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           <Typography>ID</Typography>
           <TextField fullWidth name="id" type="number" variant="outlined" onChange={handleChange} />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           <Typography>Rating</Typography>
           <TextField fullWidth name="rating" type="number" variant="outlined" onChange={handleChange} />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           <Typography>Price*</Typography>
           <TextField fullWidth name="price" type="number" variant="outlined" onChange={handleChange} required />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           <Typography>Thumbnail*</Typography>
           <TextField fullWidth name="price" type="text" variant="outlined" onChange={handleChange} required />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           <Typography>Title*</Typography>
           <TextField fullWidth name="title" variant="outlined" onChange={handleChange} required />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           <Typography>Brand*</Typography>
           <FormControl fullWidth variant="outlined">
             <InputLabel>Brand</InputLabel>
