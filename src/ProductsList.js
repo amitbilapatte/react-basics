@@ -7,16 +7,20 @@ function ProductsList() {
   const [products, setProducts] = useState([]);
   const getAll = async () => {
     const res = await axios.get("http://localhost:8000/products");
-    console.log(res);
     setProducts(res.data);
   };
   useEffect(() => {
     getAll();
   }, []);
+
+  const handleDelete = (id) => {
+    console.log("deleted : ", id);
+  };
+
   return (
     <div style={{ display: "flex", minWidth: "max-Content" }}>
       {products.map((product, index) => (
-        <Product {...product} key={index} />
+        <Product {...product} key={index} handleDelete={handleDelete} />
       ))}
     </div>
   );

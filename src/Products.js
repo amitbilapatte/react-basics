@@ -1,22 +1,10 @@
-import {
-  Avatar,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Collapse,
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { Avatar, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Typography } from "@mui/material";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import ExpandMore from "@mui/icons-material/ExpandMore";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-function Product({ thumbnail, title, rating, price }) {
+function Product({ thumbnail, title, rating, price, _id, handleDelete }) {
   return (
     <Card sx={{ maxWidth: 345, m: "1rem", boxShadow: "10" }}>
       <CardHeader
@@ -27,7 +15,7 @@ function Product({ thumbnail, title, rating, price }) {
         }
         action={
           <IconButton aria-label="settings">
-            <MoreVertIcon />
+            <DeleteIcon onClick={() => handleDelete(_id)} />
           </IconButton>
         }
         title={title}
