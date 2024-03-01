@@ -19,9 +19,12 @@ function ProductsList() {
 
   return (
     <div style={{ display: "flex", minWidth: "max-Content" }}>
-      {products.map((product, index) => (
+      <label for="birthday">Select a date:</label>
+      <input type="date" id="birthday" name="birthday" />
+
+      {/* {products.map((product, index) => (
         <Product {...product} key={index} handleDelete={handleDelete} />
-      ))}
+      ))} */}
     </div>
   );
 }
