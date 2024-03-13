@@ -3,10 +3,14 @@ import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 
 function Product({ thumbnail, title, rating, price, _id, handleDelete }) {
+  const hrefFunction = (id) => {
+    window.location.href = `/edit/${id}`;
+  };
   return (
-    <Card sx={{ maxWidth: 345, m: "1rem", boxShadow: "10" }}>
+    <Card sx={{ maxWidth: 300, m: "1rem", boxShadow: "10" }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -35,6 +39,9 @@ function Product({ thumbnail, title, rating, price, _id, handleDelete }) {
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <EditIcon color="primary" onClick={() => hrefFunction(_id)} />
         </IconButton>
       </CardActions>
     </Card>

@@ -13,18 +13,27 @@ function ProductsList() {
     getAll();
   }, []);
 
-  const handleDelete = (id) => {
-    console.log("deleted : ", id);
+  const handleDelete = async (id) => {
+    const deleteProductId = products.filter((p) => p._id === id)[0]?.id;
+    if (deleteProductId) {
+      try {
+        await axios.delete(`http://localhost:8000/products/${deleteProductId}`);
+        setProducts(products.filter((p) => p._id !== id));
+        alert("deleted product with id : ", deleteProductId);
+      } catch (error) {
+        console.error("Error deleting product:", error);
+      }
+    } else {
+      alert("Id not found for Product to be deleted");
+      console.error("Id not found for Product to be deleted");
+    }
   };
 
   return (
-    <div style={{ display: "flex", minWidth: "max-Content" }}>
-      <label for="birthday">Select a date:</label>
-      <input type="date" id="birthday" name="birthday" />
-
-      {/* {products.map((product, index) => (
+    <div style={{ display: "flex", minWidth: "fit-Content", flexWrap: "wrap" }}>
+      {products.map((product, index) => (
         <Product {...product} key={index} handleDelete={handleDelete} />
-      ))} */}
+      ))}
     </div>
   );
 }
